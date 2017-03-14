@@ -49,8 +49,6 @@ public class Kasir extends javax.swing.JFrame {
         etId = new javax.swing.JTextField();
         etHarga = new javax.swing.JTextField();
         bSave = new javax.swing.JButton();
-        bDelete = new javax.swing.JButton();
-        bClear = new javax.swing.JButton();
         bRefresh = new javax.swing.JButton();
         etHarga1 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -58,32 +56,32 @@ public class Kasir extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         etId1 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
+        bClear = new javax.swing.JButton();
+        bDelete = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         Tanggal = new javax.swing.JLabel();
         Jam = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        etId2 = new javax.swing.JTextField();
         etNama2 = new javax.swing.JTextField();
         etHarga2 = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        etTHarga = new javax.swing.JTextField();
         etJBarang = new javax.swing.JTextField();
         etNKasir = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tKasir = new javax.swing.JTable();
         bPrint = new javax.swing.JButton();
         bTransaksi = new javax.swing.JButton();
-        dcTglLahir = new com.toedter.calendar.JDateChooser();
+        dcTTransaksi = new com.toedter.calendar.JDateChooser();
         jLabel14 = new javax.swing.JLabel();
         etDiskon = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         bLoad = new javax.swing.JButton();
+        bDiskon = new javax.swing.JButton();
+        bCTransaksi = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -167,25 +165,7 @@ public class Kasir extends javax.swing.JFrame {
             }
         });
         jPanel2.add(bSave);
-        bSave.setBounds(40, 200, 107, 23);
-
-        bDelete.setText("Delete");
-        bDelete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bDeleteActionPerformed(evt);
-            }
-        });
-        jPanel2.add(bDelete);
-        bDelete.setBounds(190, 200, 70, 23);
-
-        bClear.setText("Clear");
-        bClear.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bClearActionPerformed(evt);
-            }
-        });
-        jPanel2.add(bClear);
-        bClear.setBounds(40, 240, 70, 23);
+        bSave.setBounds(30, 200, 260, 30);
 
         bRefresh.setText("Refresh");
         bRefresh.addActionListener(new java.awt.event.ActionListener() {
@@ -194,7 +174,7 @@ public class Kasir extends javax.swing.JFrame {
             }
         });
         jPanel2.add(bRefresh);
-        bRefresh.setBounds(190, 250, 70, 23);
+        bRefresh.setBounds(120, 240, 80, 30);
 
         etHarga1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -238,6 +218,24 @@ public class Kasir extends javax.swing.JFrame {
         jPanel2.add(jLabel7);
         jLabel7.setBounds(40, 0, 220, 30);
 
+        bClear.setText("Clear");
+        bClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bClearActionPerformed(evt);
+            }
+        });
+        jPanel2.add(bClear);
+        bClear.setBounds(30, 240, 70, 30);
+
+        bDelete.setText("Delete");
+        bDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bDeleteActionPerformed(evt);
+            }
+        });
+        jPanel2.add(bDelete);
+        bDelete.setBounds(220, 240, 70, 30);
+
         getContentPane().add(jPanel2);
         jPanel2.setBounds(0, 60, 310, 280);
 
@@ -246,7 +244,7 @@ public class Kasir extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("KASIR E MBOK MU");
+        jLabel1.setText("INI KASIR");
         jPanel3.add(jLabel1);
         jLabel1.setBounds(10, 0, 640, 50);
 
@@ -266,31 +264,17 @@ public class Kasir extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(255, 0, 0));
         jPanel4.setLayout(null);
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel8.setText("ID Barang");
-        jPanel4.add(jLabel8);
-        jLabel8.setBounds(40, 0, 220, 20);
-
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(51, 51, 51));
         jLabel9.setText("Nama Barang");
         jPanel4.add(jLabel9);
-        jLabel9.setBounds(40, 50, 220, 20);
+        jLabel9.setBounds(30, 10, 220, 20);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(51, 51, 51));
         jLabel10.setText("Harga Barang");
         jPanel4.add(jLabel10);
-        jLabel10.setBounds(40, 100, 220, 20);
-
-        etId2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                etId2ActionPerformed(evt);
-            }
-        });
-        jPanel4.add(etId2);
-        etId2.setBounds(40, 20, 220, 30);
+        jLabel10.setBounds(30, 60, 220, 20);
 
         etNama2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -298,7 +282,7 @@ public class Kasir extends javax.swing.JFrame {
             }
         });
         jPanel4.add(etNama2);
-        etNama2.setBounds(40, 70, 220, 30);
+        etNama2.setBounds(30, 30, 220, 30);
 
         etHarga2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -306,33 +290,19 @@ public class Kasir extends javax.swing.JFrame {
             }
         });
         jPanel4.add(etHarga2);
-        etHarga2.setBounds(40, 120, 220, 30);
+        etHarga2.setBounds(30, 80, 220, 30);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(51, 51, 51));
         jLabel11.setText("Jumlah Barang");
         jPanel4.add(jLabel11);
-        jLabel11.setBounds(40, 150, 220, 20);
-
-        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel12.setText("Total Harga");
-        jPanel4.add(jLabel12);
-        jLabel12.setBounds(40, 200, 220, 20);
+        jLabel11.setBounds(30, 110, 220, 20);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(51, 51, 51));
         jLabel13.setText("Nama Kasir");
         jPanel4.add(jLabel13);
-        jLabel13.setBounds(310, 0, 220, 20);
-
-        etTHarga.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                etTHargaActionPerformed(evt);
-            }
-        });
-        jPanel4.add(etTHarga);
-        etTHarga.setBounds(40, 220, 220, 30);
+        jLabel13.setBounds(30, 160, 220, 20);
 
         etJBarang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -340,7 +310,7 @@ public class Kasir extends javax.swing.JFrame {
             }
         });
         jPanel4.add(etJBarang);
-        etJBarang.setBounds(40, 170, 220, 30);
+        etJBarang.setBounds(30, 130, 220, 30);
 
         etNKasir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -348,7 +318,7 @@ public class Kasir extends javax.swing.JFrame {
             }
         });
         jPanel4.add(etNKasir);
-        etNKasir.setBounds(310, 20, 220, 30);
+        etNKasir.setBounds(30, 180, 220, 30);
 
         tKasir.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -358,13 +328,13 @@ public class Kasir extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Id", "Nama", "Harga", "Jumlah", "TotalHarga", "Kasir", "Tanggal", "Diskon"
+                "No", "Nama", "Harga", "Jumlah", "TotalHarga", "Kasir", "Tanggal", "Diskon"
             }
         ));
         jScrollPane1.setViewportView(tKasir);
 
         jPanel4.add(jScrollPane1);
-        jScrollPane1.setBounds(360, 180, 450, 100);
+        jScrollPane1.setBounds(360, 20, 520, 110);
 
         bPrint.setText("Print");
         bPrint.addActionListener(new java.awt.event.ActionListener() {
@@ -373,7 +343,7 @@ public class Kasir extends javax.swing.JFrame {
             }
         });
         jPanel4.add(bPrint);
-        bPrint.setBounds(740, 290, 70, 23);
+        bPrint.setBounds(800, 140, 70, 30);
 
         bTransaksi.setText("Simpan Transaksi");
         bTransaksi.addActionListener(new java.awt.event.ActionListener() {
@@ -382,15 +352,15 @@ public class Kasir extends javax.swing.JFrame {
             }
         });
         jPanel4.add(bTransaksi);
-        bTransaksi.setBounds(360, 300, 120, 23);
-        jPanel4.add(dcTglLahir);
-        dcTglLahir.setBounds(310, 70, 220, 30);
+        bTransaksi.setBounds(360, 150, 130, 30);
+        jPanel4.add(dcTTransaksi);
+        dcTTransaksi.setBounds(30, 230, 220, 30);
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(51, 51, 51));
         jLabel14.setText("Tanggal Transaksi");
         jPanel4.add(jLabel14);
-        jLabel14.setBounds(310, 50, 220, 20);
+        jLabel14.setBounds(30, 210, 220, 20);
 
         etDiskon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -398,13 +368,13 @@ public class Kasir extends javax.swing.JFrame {
             }
         });
         jPanel4.add(etDiskon);
-        etDiskon.setBounds(310, 120, 220, 30);
+        etDiskon.setBounds(30, 280, 220, 30);
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(51, 51, 51));
         jLabel15.setText("Diskon");
         jPanel4.add(jLabel15);
-        jLabel15.setBounds(310, 100, 220, 20);
+        jLabel15.setBounds(30, 260, 220, 20);
 
         bLoad.setText("Load");
         bLoad.addActionListener(new java.awt.event.ActionListener() {
@@ -413,12 +383,30 @@ public class Kasir extends javax.swing.JFrame {
             }
         });
         jPanel4.add(bLoad);
-        bLoad.setBounds(570, 290, 55, 23);
+        bLoad.setBounds(430, 190, 60, 30);
+
+        bDiskon.setText("Diskon");
+        bDiskon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bDiskonActionPerformed(evt);
+            }
+        });
+        jPanel4.add(bDiskon);
+        bDiskon.setBounds(260, 280, 70, 30);
+
+        bCTransaksi.setText("Clear");
+        bCTransaksi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCTransaksiActionPerformed(evt);
+            }
+        });
+        jPanel4.add(bCTransaksi);
+        bCTransaksi.setBounds(360, 190, 60, 30);
 
         getContentPane().add(jPanel4);
-        jPanel4.setBounds(0, 360, 890, 410);
+        jPanel4.setBounds(0, 360, 890, 340);
 
-        setBounds(0, 0, 907, 808);
+        setBounds(0, 0, 907, 736);
     }// </editor-fold>//GEN-END:initComponents
 
     private void bSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSaveActionPerformed
@@ -453,7 +441,7 @@ public class Kasir extends javax.swing.JFrame {
         if (baris >= 0)
         {
             String Id = tBarang.getValueAt(baris, 0).toString();
-            String SQL = "delete from t_siswa where id_barang='"+Id+"'";
+            String SQL = "delete from t_Barang where id_barang='"+Id+"'";
             int status = koneksiDB.execute(SQL);
             if (status == 1)
             {
@@ -488,11 +476,9 @@ public class Kasir extends javax.swing.JFrame {
         int baris = tBarang.getSelectedRow();
         if (baris != -1)
         {
-            etId2.setText(tBarang.getValueAt(baris, 0).toString());
             etNama2.setText(tBarang.getValueAt(baris, 1).toString());
             etHarga2.setText(tBarang.getValueAt(baris, 2).toString());
             etJBarang.setText("");
-            etTHarga.setText("");
             etNKasir.setText("");
             etDiskon.setText("");
         }
@@ -504,7 +490,7 @@ public class Kasir extends javax.swing.JFrame {
         MessageFormat footer = new MessageFormat("Page (0,number,integer)       ");
         try
         {
-            tBarang.print(JTable.PrintMode.FIT_WIDTH, header, footer, true, null, true, null);
+            tKasir.print(JTable.PrintMode.FIT_WIDTH, header, footer, true, null, true, null);
         }
         catch (java.awt.print.PrinterException e)
         {
@@ -540,17 +526,9 @@ public class Kasir extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_etNama2ActionPerformed
 
-    private void etId2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_etId2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_etId2ActionPerformed
-
     private void etHarga2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_etHarga2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_etHarga2ActionPerformed
-
-    private void etTHargaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_etTHargaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_etTHargaActionPerformed
 
     private void etJBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_etJBarangActionPerformed
         // TODO add your handling code here:
@@ -563,23 +541,25 @@ public class Kasir extends javax.swing.JFrame {
     private void bTransaksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bTransaksiActionPerformed
         // TODO add your handling code here:
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        String tanggal = dateFormat.format(dcTglLahir.getDate());
+        String tanggal = dateFormat.format(dcTTransaksi.getDate());
         
-        if (etId2.getText().equals("")||
-            etNama2.getText().equals("")||
+        int harga = Integer.parseInt(etHarga2.getText());
+        int jumlah = Integer.parseInt(etJBarang.getText());
+        int total = harga*jumlah;
+        
+        
+        if (etNama2.getText().equals("")||
             etHarga2.getText().equals("")||
             etJBarang.getText().equals("")||
-            etTHarga.getText().equals("")||
-            etNKasir.getText().equals("")||
-            etDiskon.getText().equals(""))
+            etNKasir.getText().equals(""))
         {
             JOptionPane.showMessageDialog(this, "Lengkapi data", "Error", JOptionPane.WARNING_MESSAGE);
         }
         else
         {
 
-            String SQL = "insert into t_transaksi (id_barang,nm_barang,hrg_barang,jml_barang,ttl_harga,nm_kasir,tgl_transaksi,diskon)"
-            + "values ('"+etId2.getText()+"','"+etNama2.getText()+"','"+etHarga2.getText()+"','"+etJBarang.getText()+"','"+etTHarga.getText()+"','"+etNKasir.getText()+"','"+tanggal+"','"+etDiskon.getText()+"')";
+            String SQL = "insert into t_transaksi (nm_barang,hrg_barang,jml_barang,ttl_harga,nm_kasir,tgl_transaksi,diskon)"
+            + "values ('"+etNama2.getText()+"','"+etHarga2.getText()+"','"+etJBarang.getText()+"','"+total+"','"+etNKasir.getText()+"','"+tanggal+"','"+etDiskon.getText()+"')";
             int status = koneksiDB.execute(SQL);
             if (status == 1)
             {
@@ -600,6 +580,22 @@ public class Kasir extends javax.swing.JFrame {
         // TODO add your handling code here:
         loadData();
     }//GEN-LAST:event_bLoadActionPerformed
+
+    private void bDiskonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDiskonActionPerformed
+        // TODO add your handling code here:
+        cekDiskon();
+    }//GEN-LAST:event_bDiskonActionPerformed
+
+    private void bCTransaksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCTransaksiActionPerformed
+        // TODO add your handling code here:
+        
+        etNama2.setText("");
+        etHarga2.setText("");
+        etJBarang.setText("");
+        etNKasir.setText("");
+        dcTTransaksi.setDate(null);
+        etDiskon.setText("");
+    }//GEN-LAST:event_bCTransaksiActionPerformed
 
     /**
      * @param args the command line arguments
@@ -639,31 +635,30 @@ public class Kasir extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Jam;
     private javax.swing.JLabel Tanggal;
+    private javax.swing.JButton bCTransaksi;
     private javax.swing.JButton bClear;
     private javax.swing.JButton bDelete;
+    private javax.swing.JButton bDiskon;
     private javax.swing.JButton bLoad;
     private javax.swing.JButton bPrint;
     private javax.swing.JButton bRefresh;
     private javax.swing.JButton bSave;
     private javax.swing.JButton bTransaksi;
-    private com.toedter.calendar.JDateChooser dcTglLahir;
+    private com.toedter.calendar.JDateChooser dcTTransaksi;
     private javax.swing.JTextField etDiskon;
     private javax.swing.JTextField etHarga;
     private javax.swing.JTextField etHarga1;
     private javax.swing.JTextField etHarga2;
     private javax.swing.JTextField etId;
     private javax.swing.JTextField etId1;
-    private javax.swing.JTextField etId2;
     private javax.swing.JTextField etJBarang;
     private javax.swing.JTextField etNKasir;
     private javax.swing.JTextField etNama;
     private javax.swing.JTextField etNama1;
     private javax.swing.JTextField etNama2;
-    private javax.swing.JTextField etTHarga;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -673,7 +668,6 @@ public class Kasir extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -717,7 +711,7 @@ public class Kasir extends javax.swing.JFrame {
 
     private void loadData() 
     {
-        String kolom[] = {"id_barang","nm_barang","hrg_barang","jml_barang","ttl_harga","nm_kasir","tgl_transaksi","diskon"};
+        String kolom[] = {"No Transaksi","Nama Barang","Harga Barang","Jumlah Barang","Total Harga","Nama Kasir","Tanggal Transaksi","Diskon"};
         DefaultTableModel dtm = new DefaultTableModel(null, kolom);
         String SQL = "SELECT * FROM t_transaksi";
         ResultSet rs = koneksiDB.executeQuery(SQL);
@@ -725,7 +719,7 @@ public class Kasir extends javax.swing.JFrame {
         {
             while (rs.next()) 
             {
-                String id_barang = rs.getString(1);
+                String no_transaksi = rs.getString(1);
                 String nm_barang = rs.getString(2);
                 String hrg_barang = rs.getString(3);
                 String jml_barang = rs.getString(4);
@@ -733,7 +727,7 @@ public class Kasir extends javax.swing.JFrame {
                 String nm_kasir = rs.getString(6);
                 String tgl_transaksi = rs.getString(7);
                 String diskon = rs.getString(8);
-                String data[] = {id_barang,nm_barang,hrg_barang,jml_barang,ttl_harga,nm_kasir,tgl_transaksi,diskon};
+                String data[] = {no_transaksi,nm_barang,hrg_barang,jml_barang,ttl_harga,nm_kasir,tgl_transaksi,diskon};
                 dtm.addRow(data);
             }
         }
@@ -742,5 +736,20 @@ public class Kasir extends javax.swing.JFrame {
             Logger.getLogger(Kasir.class.getName()).log(Level.SEVERE, null, ex);
         }
         tKasir.setModel(dtm);
+    }
+
+    private void cekDiskon()
+    {
+        int harga = Integer.parseInt(etHarga2.getText());
+        int jumlah = Integer.parseInt(etJBarang.getText());
+        int total = harga*jumlah;
+        
+        if(total > 100000)
+        {
+            etDiskon.setText("10%");
+        }
+        else{
+            etDiskon.setText("0%");
+        }
     }
 }
